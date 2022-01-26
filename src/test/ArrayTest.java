@@ -24,6 +24,7 @@ public class ArrayTest {
         ArrayList<String> sentence = new ArrayList<String>();
         sentence.add("mason");
         
+        //test git push
 
 
 

@@ -11,7 +11,7 @@ public class PalindromicSubstrings {
     */
     public static void main(String[] args) {
         PalindromicSubstrings ps = new PalindromicSubstrings();
-        System.out.print("count of PalindromicSubstrings: " + ps.countSubstrings2("aaa"));
+        System.out.print("count of PalindromicSubstrings: " + ps.countSubstrings3("abcbazcczf"));
     }
 
     
@@ -77,6 +77,41 @@ public class PalindromicSubstrings {
             } else break;
         }
         return output;
+    }
+
+
+    //3rd solution: use a matrix and dynamic programming
+    public int countSubstrings3(String s){
+        int numOfPalindrome = 0;
+        
+        int[][] matrix = new int[s.length()][s.length()];
+
+        for(int col = 0; col < s.length(); col++){
+            for(int row = 0; row <= col; row++){
+                if (col - row == 0){
+                    //it is a single characte substring, for example 'a'
+                    matrix[row][col] = 1;
+                    numOfPalindrome++;
+                }
+                else if(col - row == 1){
+                    //if j - i = 1, then it is a 2 character substring, for example 'aa'. then only need to check if these two char are the same
+                    if (s.charAt(row) == s.charAt(col)) {
+                        matrix[row][col] = 1; 
+                        numOfPalindrome++;
+                    } 
+                } else {
+                    if (s.charAt(row) == s.charAt(col)) {
+                        //if (row+1 == col-1) matrix[row+1][col-1] = 1;
+                        //check the substring i+1 to j-1 is a palindrome
+                        if(matrix[row+1][col-1] == 1){
+                            matrix[row][col] = 1;
+                            numOfPalindrome++;
+                        }
+                    }
+                }
+            }
+        }
+        return numOfPalindrome;
     }
 
 }

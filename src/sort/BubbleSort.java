@@ -36,6 +36,15 @@ public class BubbleSort {
         print(nums);
     }
 
+    /*
+     * More generally, it can happen that more than one element is placed 
+     * in their final position on a single pass. 
+     * In particular, after every pass, 
+     * all elements after the last swap are sorted, 
+     * and do not need to be checked again. 
+     * This allows us to skip over many elements, 
+     * resulting in about a 50% improvement in the worst-case comparison count (though no improvement in swap counts)
+     */
     static void improved_sort(int[] nums){
         if(nums == null || nums.length <= 1) return ;
         

@@ -6,7 +6,9 @@ import java.util.HashMap;
 public class LongestSubString {
 
     public static void main(String[] args) {
-        System.out.println(characterReplacement2("ABAB", 2));
+        //System.out.println(characterReplacement2("ABAB", 2));
+        int length = lengthOfLongestSubstringWithoutRepeating("abcabcbb");
+        System.out.println("longest substring without repeating characters:" + length);
     }
     
     /**
@@ -107,6 +109,26 @@ public class LongestSubString {
         }
 
         return maxLength;
+    }
+
+    /*
+     * Given a string s, find the length of the longest 
+     * substring without repeating characters.
+     */
+    public static int lengthOfLongestSubstringWithoutRepeating(String s) {
+        int n = s.length();
+        int ans = 0;
+        int[] index = new int[128]; // current index of character
+        // try to extend the range [i, j]
+        for (int j = 0, i = 0; j < n; j++) {
+            System.out.println("j=" + j +  " char=" + s.charAt(j) + " current index=" + index[s.charAt(j)]);
+            System.out.println("- previous i=" + i);
+            i = Math.max(index[s.charAt(j)], i);
+            System.out.println("- current i=" + i);
+            ans = Math.max(ans, j - i + 1);
+            index[s.charAt(j)] = j + 1;
+        }
+        return ans;
     }
 
 }

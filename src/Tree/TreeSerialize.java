@@ -23,7 +23,6 @@ public class TreeSerialize {
                 builder.append("#");//#: end of the node
                 List<TreeNode> children = curr.getChildren();
                 for(TreeNode child : children) queue.add(child);
-                
             }
             //root has been removed
             //all chidlren in the queue
@@ -56,7 +55,7 @@ public class TreeSerialize {
                 
                 queue.add(node);
             } else if(c == '@'){
-                //end of thie children
+                //end of the children
                 //poll the parent from the queue
                 queue.poll();
             }

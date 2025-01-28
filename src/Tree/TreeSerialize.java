@@ -7,6 +7,26 @@ public class TreeSerialize {
     public static void main(String[] args) {
         TreeSerialize serialize = new TreeSerialize();
         TreeNode root = serialize.deSeralize("123#@2#3#4#@5#6#@@7#8#@");
+        serialize.levelOrderPrint(root);
+    }
+
+    public void levelOrderPrint(TreeNode root){
+        if (root == null) return;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        
+        while(!queue.isEmpty()){
+            int len = queue.size();
+            for(int i = 0; i < len; i++){
+                TreeNode curr = queue.poll();
+                System.out.print(curr.val + " ");
+                List<TreeNode> children = curr.getChildren();
+                for(TreeNode child : children){
+                    queue.add(child);
+                }
+            }
+            System.out.println();
+        }
     }
 
     public String serialize(TreeNode root){

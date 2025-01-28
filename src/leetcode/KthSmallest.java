@@ -1,8 +1,8 @@
 package leetcode;
 
-class Solution {
+class KthSmallest {
     public static void main(String[] args) {
-        Solution s = new Solution();
+        KthSmallest s = new KthSmallest();
         int[][] matrix = new int[3][3];
         matrix[0][0] = 1;
         matrix[0][1] = 5;

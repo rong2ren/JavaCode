@@ -1,4 +1,4 @@
-package amazon;
+package Complex;
 
 public class MinimumChanges {
 

@@ -1,3 +1,17 @@
-bin
+# Compiled class files
+*.class
+
+# Java binary files
+*.jar
+*.war
+*.ear
+
+# VS Code directory
+.vscode/
+
+# Binary directory
+bin/
+
+# Mac specific files
 .DS_Store
-src/.DS_Store
+

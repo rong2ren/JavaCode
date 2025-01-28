@@ -1,4 +1,4 @@
-package amazon;
+package Complex;
 
 public class TruckDistance {
     public static void main(String[] args) {
